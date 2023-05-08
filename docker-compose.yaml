@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  spark-job:
+    build:
+      context: .
+      dockerfile: dockerfiles/spark-job.dockerfile
+    volumes:
+      - ./data:/data
+      - ./logs:/logs
+      - ./events:/events
+    environment:
+      - PYSPARK_PYTHON=python3.7
+
+  spark-history-server:
+    build:
+      context: .
+      dockerfile: dockerfiles/logs.dockerfile
+    ports:
+      - "18080:18080"
+    environment:
+      - PYSPARK_PYTHON=python3.7
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.history.HistoryServer --properties-file /config/spark.conf
+    volumes:
+      - ./logs:/logs
+      - ./config:/config
+      - ./events:/events
+      
+  jupyter:
+    image: jupyter/pyspark-notebook:spark-3.3.1
+    ports:
+      - '8890:8888'
+    volumes:
+      - ./data:/data
+      - ./src:/src
+      - ./notebooks:/home/jovyan/work     
+      
+      
+      
