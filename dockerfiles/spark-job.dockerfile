@@ -40,7 +40,7 @@ RUN wget -q https://repo1.maven.org/maven2/io/delta/delta-core_2.11/0.6.1/delta-
 # Copy the Spark job files to the container
 WORKDIR /app
 
-COPY scripts .
+COPY src .
 
 COPY data /data
 
