@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  spark-job:
+    image: pysparkazureacr.azurecr.io/spark-job:latest
+    deploy:
+      restart_policy:
+        condition: none    
+    volumes:
+      - events:/events
+      - output:/output      
+      - data:/data      
+      - src:/src 
+      - logs:/logs        
+    environment:
+      - PYSPARK_PYTHON=python3.7
+
+  spark-history-server:
+    image: pysparkazureacr.azurecr.io/spark-history-server:latest
+    volumes:
+      - events:/events      
+    ports:
+      - "18080:18080"
+    environment:
+      - PYSPARK_PYTHON=python3.7
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.history.HistoryServer --properties-file /config/spark.conf
+      
+  jupyter:
+    image: jupyter/pyspark-notebook:spark-3.3.1
+    ports:
+      - '8888:8888'
+    volumes:
+      - output:/output       
+      - data:/data            
+      - src:/home/jovyan/src  
+      - notebooks:/home/jovyan/work        
+volumes:
+  events:
+    driver: azure_file
+    driver_opts:
+      share_name: events
+      storage_account_name: mypysparkapp
+      
+  output:
+    driver: azure_file
+    driver_opts:
+      share_name: output
+      storage_account_name: mypysparkapp
+      
+  data:
+    driver: azure_file
+    driver_opts:
+      share_name: data
+      storage_account_name: mypysparkapp  
+      
+  notebooks:
+    driver: azure_file
+    driver_opts:
+      share_name: notebooks
+      storage_account_name: mypysparkapp  
+
+  src:
+    driver: azure_file
+    driver_opts:
+      share_name: notebooks
+      storage_account_name: mypysparkapp
+      
+  logs:
+    driver: azure_file
+    driver_opts:
+      share_name: logs
+      storage_account_name: mypysparkapp       

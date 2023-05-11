@@ -40,9 +40,7 @@ RUN wget -q https://repo1.maven.org/maven2/io/delta/delta-core_2.11/0.6.1/delta-
 # Copy the Spark job files to the container
 WORKDIR /app
 
-COPY src .
-
-COPY data /data
+COPY config /config
 
 # Run the Spark job
-CMD ["spark-submit", "--master", "local[*]", "--conf", "spark.driver.bindAddress=0.0.0.0", "--driver-class-path", "/usr/local/spark/jars/delta-core_2.12-1.1.0.jar", "--packages", "io.delta:delta-core_2.12:1.1.0", "--name", "spark-job-1", "spark-job-1.py" , "--data_path", "/data", "--output_path", "/data/delta", "--log_file", "/logs/ingestion.log", "--event_dir", "/events"]
+CMD ["spark-submit", "--master", "local[*]", "--conf", "spark.driver.bindAddress=0.0.0.0", "--driver-class-path", "/usr/local/spark/jars/delta-core_2.12-1.1.0.jar", "--packages", "io.delta:delta-core_2.12:1.1.0", "--name", "spark-job-1", "/src/etl/sparkjob.py" , "--data_path", "/data", "--output_path", "/output/delta", "--log_file", "/logs/ingestion.log", "--event_dir", "/events"]
