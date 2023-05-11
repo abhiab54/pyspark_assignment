@@ -129,3 +129,50 @@
 2023-05-09 08:33:15,232 INFO Read CSV file with 3 rows from /data/file2.csv
 2023-05-09 08:33:15,265 INFO Added batch_id and timestamp columns to DataFrame
 2023-05-09 08:33:26,360 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:25:39,070 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-09 12:25:40,204 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:26:30,323 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:26:36,143 INFO Read CSV file with 3 rows from /data/file2.csv
+2023-05-09 12:26:36,241 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:26:50,457 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:32:07,002 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-09 12:32:07,881 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:32:38,307 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:32:43,570 INFO Read CSV file with 3 rows from /data/file2.csv
+2023-05-09 12:32:43,700 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:32:58,270 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:46:35,393 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-09 12:46:36,547 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:47:02,857 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 12:47:08,272 INFO Read CSV file with 3 rows from /data/file2.csv
+2023-05-09 12:47:08,420 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 12:47:28,671 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 13:14:13,211 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-09 13:14:16,163 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 13:15:02,109 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-09 13:15:06,992 INFO Read CSV file with 3 rows from /data/file2.csv
+2023-05-09 13:15:07,067 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-09 13:15:32,817 INFO Wrote 3 rows to Delta Lake at /data/delta
+2023-05-11 11:13:15,573 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:13:31,657 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 11:15:22,146 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:16:41,186 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:16:41,186 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:17:21,755 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:17:21,755 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:17:21,755 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:46:44,448 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 11:46:54,498 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 12:24:15,877 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 12:24:26,446 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 12:36:24,147 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 12:36:34,949 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 12:40:04,214 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 12:40:12,652 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 12:42:59,381 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 12:43:11,509 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 13:01:37,672 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 13:01:46,460 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 13:04:01,772 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 13:04:32,078 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 13:04:41,896 INFO Added batch_id and timestamp columns to DataFrame

@@ -5,11 +5,14 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/spark-job.dockerfile
-      image: 
     volumes:
       - events:/events
-      - output:/output
+      - ./output:/output
       - ./data:/data
+      - ./src:/src
+      - ./logs:/logs      
+    ports:
+      - "4040:4040"      
     environment:
       - PYSPARK_PYTHON=python3.7
 
@@ -30,22 +33,12 @@ services:
     ports:
       - '8888:8888'
     volumes:
-      - output:/output  
-      
-      
+      - ./output:/output
+      - ./data:/data
+      - ./src:/home/jovyan/src      
+      - ./notebooks:/home/jovyan/work   
+
 volumes:
   events:
-    driver: azure_file
-    driver_opts:
-      share_name: events
-      storage_account_name: mypysparkapp    
-  output:
-     driver: azure_file
-    driver_opts:
-      share_name: output
-      storage_account_name: mypysparkapp
-  data:
-     driver: azure_file
-    driver_opts:
-      share_name: data
-      storage_account_name: mypysparkapp        
+    external: true
+    

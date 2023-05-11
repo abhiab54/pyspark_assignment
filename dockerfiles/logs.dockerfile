@@ -26,6 +26,10 @@ RUN wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz && \
     make altinstall && \
     python3.7 -V
 
+
+COPY logs /logs
+COPY config /config
+
 # Set Spark home environment variable
 ENV SPARK_HOME /opt/spark
 
