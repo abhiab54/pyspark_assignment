@@ -95,46 +95,6 @@ class IngestionJob:
         self.logger.info(f"Added batch_id and timestamp columns to DataFrame")
         return df
         
-    def ingest_csv_to_deltalake(self, file_path, output_path):
-    # define the schema for incoming data
-        SCHEMA = StructType(
-        [
-            StructField('id', StringType(), True), 
-            StructField('name', StringType(), True),
-            StructField('age', StringType(), True), 
-        ]
-        )
-    # read each csv file into a dataframe. We will consider all files are without header
-        df = self.spark\
-        .read.format("csv")\
-        .option("delimiter", "|")\
-        .option("header", "false")\
-        .option("encoding", "ISO-8859-1")\
-        .schema(SCHEMA)\
-        .load(file_path)
-    
-    # now if any files happens to have a header then we can just remove that header line
-        row1 = [i for i in df.head(1)[0].asDict().values()] # get first row
-        schema_list = [(x.name) for x in SCHEMA.fields] # get schema as list
-        
-        if row1 == schema_list: # if first row is the schema then remove that row
-            row1 = df.limit(1)
-            df = df.subtract(row1)
-            
-        print(file_path)
-        self.logger.info(f"Read CSV file with {df.count()} rows from {file_path}")
-
-        # Add batch_id and current timestamp columns
-        df = df.withColumn("timestamp", date_format(current_timestamp(), "yyyy-MM-dd HH:mm:ss"))
-        df = df.withColumn("batch_uuid", lit(uuid.uuid4().hex))
-        self.logger.info(f"Added batch_id and timestamp columns to DataFrame")
-        
-        
-
-        # Write to Delta Lake with append mode and partition by batch_id and timestamp
-        output_table = f"{output_path}"
-        df.write.format("delta").mode("append").save(output_table)
-        self.logger.info(f"Wrote {df.count()} rows to Delta Lake at {output_table}")
 
 if __name__ == "__main__":
     # Initialize SparkSession
