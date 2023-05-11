@@ -25,23 +25,7 @@ def add_fields(df):
     df = df.withColumn("batch_uuid", lit(uuid.uuid4().hex))
     return df
     
-def start_spark_history_server(log_dir,event_dir):
-    """
-    Launches a Spark History Server and configures it to read logs from the specified directory.
-    """
-    # Set Spark configuration
-    conf = SparkConf().setAppName("SparkHistoryServer").set("spark.eventLog.enabled", "true") \
-                      .set("spark.eventLog.dir", event_dir).set("spark.history.fs.logDirectory", log_dir)
-
-    # Create a SparkSession
-    spark = SparkSession.builder.config(conf=conf).getOrCreate()
-
-    # Start Spark History Server
-    os.system(f"nohup spark-submit --class org.apache.spark.deploy.history.HistoryServer \
-            $SPARK_HOME/jars/spark-*.jar > /dev/null 2>&1 &")
-
-    return spark
-    
+   
 class IngestionJob:
     def __init__(self, spark, log_file):
         self.spark = spark
@@ -97,9 +81,7 @@ class IngestionJob:
         
 
 if __name__ == "__main__":
-    # Initialize SparkSession
-    spark = SparkSession.builder.appName("IngestionJob").getOrCreate()
-
+  
     # Parse arguments
     parser = argparse.ArgumentParser(description='Ingest CSV files into Delta Lake')
     parser.add_argument("--data_path", help="Path to csv files", required=True)
@@ -108,6 +90,13 @@ if __name__ == "__main__":
     parser.add_argument('--event_dir', type=str, default='/events', help='Event directory')
     args = parser.parse_args()
 
+    # Set Spark configuration
+    conf = SparkConf().setAppName("IngestionJob").set("spark.eventLog.enabled", "true") \
+                      .set("spark.eventLog.dir", args.event_dir).set("spark.history.fs.logDirectory", args.log_file)
+
+    # Create a SparkSession
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+      
     # create empty dataframe
     # Create an empty RDD
     emp_RDD = spark.sparkContext.emptyRDD()
@@ -138,5 +127,5 @@ if __name__ == "__main__":
     # Stop SparkSession
     spark.stop()
     
-    spark = start_spark_history_server(args.log_file,args.event_dir)
+
     

@@ -176,3 +176,19 @@
 2023-05-11 13:04:01,772 INFO Read CSV file with 3 rows from /data/file1.csv
 2023-05-11 13:04:32,078 INFO Read CSV file with 3 rows from /data/file1.csv
 2023-05-11 13:04:41,896 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 16:41:03,656 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 16:41:17,842 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 16:46:34,990 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 16:46:47,382 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 16:47:47,751 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 16:47:58,245 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 17:03:03,000 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 17:03:15,428 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 17:07:39,031 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 17:07:49,090 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 17:32:14,366 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 17:32:25,138 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 17:41:18,114 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 17:41:31,917 INFO Added batch_id and timestamp columns to DataFrame
+2023-05-11 17:42:30,502 INFO Read CSV file with 3 rows from /data/file1.csv
+2023-05-11 17:42:41,104 INFO Added batch_id and timestamp columns to DataFrame
