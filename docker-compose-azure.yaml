@@ -62,7 +62,7 @@ volumes:
   src:
     driver: azure_file
     driver_opts:
-      share_name: notebooks
+      share_name: src
       storage_account_name: mypysparkapp
       
   logs:

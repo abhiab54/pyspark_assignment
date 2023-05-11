@@ -178,3 +178,5 @@ if __name__ == "__main__":
     # Stop SparkSession
     spark.stop()
     
+    spark = start_spark_history_server(args.log_file,args.event_dir)
+    
